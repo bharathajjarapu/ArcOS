@@ -253,7 +253,7 @@ Where-Object -Property 'FeatureName' -In -Value @(
   # Specify the target PowerShell command
   $command = "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command 'irm https://christitus.com/win | iex'"
   # Specify the path for the shortcut
-  $shortcutPath = Join-Path $desktopPath 'LAUNCH-CTT-WINUTIL.lnk'
+  $shortcutPath = Join-Path $desktopPath 'CTT.lnk'
   # Create a shell object
   $shell = New-Object -ComObject WScript.Shell
         
