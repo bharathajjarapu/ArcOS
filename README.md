@@ -46,6 +46,7 @@ This project does a ton of cool stuff to make your Windows experience better:
 - 🛠️ Applies performance and privacy tweaks
 - 🔄 Configures Windows Update for security updates only
 - 🌙 Enables Dark Mode by default
+<br>
 
 > [!NOTE]
 > Due to the removal of Microsoft Edge, I also include a Powershell Script on the Desktop called `CTT.ps1`
@@ -54,6 +55,6 @@ This project does a ton of cool stuff to make your Windows experience better:
 
 ## 🎉 Conclusion
 
-I hope this project makes your Windows installation process bloat free !
+I hope this project makes your Windows installation process bloat free and I will try to add more tweaks like removing unnecessary UI Elements, option to disable Windows Security and more processes tweaks !
 
 Please use your PC responsibly, dont bloat it ! 🎓🖥️
