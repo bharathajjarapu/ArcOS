@@ -47,6 +47,11 @@ This project does a ton of cool stuff to make your Windows experience better:
 - 🔄 Configures Windows Update for security updates only
 - 🌙 Enables Dark Mode by default
 
+> [!NOTE]
+> Due to the removal of Microsoft Edge, I also include a Powershell Script on the Desktop called `CTT.ps1`
+  Make sure you are connected to the internet, then right click on this file and select Run with Powershell. It will launch the Chris Titus Tech Windows Utility and you can use that to install your browser or any other apps easily.
+<br/>
+
 ## 🎉 Conclusion
 
 I hope this project makes your Windows installation process bloat free !
