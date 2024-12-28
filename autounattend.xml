@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <unattend xmlns="urn:schemas-microsoft-com:unattend" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State">
-  <!--Made by Bharath Ajjarapu specifically to customise Windows for more privacy and vanilla windows look with no ads bs -->
+  <!--Made by Bharath Ajjarapu specifically to customise Windows for more privacy and vanilla windows look with no ads & bs -->
   <!--Credit to Schneegans as the Base File was Generated with https://schneegans.de/windows/unattend-generator/ -->
-  <!--Credit to Chris Titus Tech as this file contains Tweaks from The Windows Utility https://github.com/ChrisTitusTech/winutil | https://christitus.com/windows-tool/ | https://www.youtube.com/@ChrisTitusTech/ -->
+  <!--Credit to Chris Titus Tech as this file contains Tweaks from The Windows Utility https://github.com/ChrisTitusTech/winutil | https://www.youtube.com/@ChrisTitusTech/ -->
   <settings pass="offlineServicing"></settings>
 
   <settings pass="windowsPE">
