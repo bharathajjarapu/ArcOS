@@ -1,0 +1,389 @@
+/* Apple Font*/
+@font-face {
+  font-family: "SF-Pro";
+  src: url("./SF-Pro.ttf");
+}
+
+/*Symbols font */
+@font-face {
+  font-family: "SF-Symbols";
+  src: url("./SF-Symbols.ttf");
+}
+
+/* Apple Font*/
+* {
+  font-family: "SF-Pro", Arial;
+}
+
+/* Apple Icons for Workspaces*/
+#zen-current-workspace-indicator #zen-current-workspace-indicator-icon {
+  font-family: "Color-Emoji" !important;
+}
+
+#back-button,
+#forward-button,
+#reload-button {
+  list-style-image: url("no.svg") !important;
+  opacity: 0.7;
+}
+
+#back-button:before {
+  content: "";
+  margin-right: -19px;
+  font-family: "SF-Symbols";
+}
+
+#forward-button:before {
+  content: "";
+  margin-right: -19px;
+  font-family: "SF-Symbols";
+}
+
+#reload-button:before {
+  content: "";
+  margin-right: -19px;
+  font-size: 15px;
+  margin-top: -2px;
+  font-family: "SF-Symbols";
+  transition: 0.1s;
+  transform-origin: 5px 15px;
+}
+
+#reload-button:active::before {
+  rotate: 20deg;
+}
+
+#PanelUI-zen-gradient-degrees {
+  border-style: dotted !important;
+  opacity: 0.7 !important;
+}
+
+/* Hide attention icon (green dot) under tab icons */
+#navigator-toolbox {
+
+  .tabbrowser-tab:is([image], [pinned])>.tab-stack>.tab-content[attention]:not([selected]),
+  .tabbrowser-tab>.tab-stack>.tab-content[pinned][titlechanged]:not([selected]) {
+    background-image: none !important;
+  }
+
+  .tabbrowser-tab>.tab-stack>.tab-content[titlechanged]:not([selected="true"]) {
+    background-image: none !important;
+  }
+
+  --border-radius-medium: 10px !important;
+  --tab-border-radius: 10px !important;
+}
+
+
+/* Zen Icon*/
+#PanelUI-menu-button {
+  list-style-image: url(arc.svg) !important;
+}
+
+#statuspanel {
+  margin: 10px !important;
+}
+
+#statuspanel-label {
+  border-radius: 10000px !important;
+  padding: 2px 10px !important;
+  border: 1px solid var(--zen-colors-border) !important;
+  background: var(--zen-colors-tertiary) !important;
+}
+
+:root {
+  --essentials-width: 40px !important;
+  --essentials-gap: 1px !important;
+}
+
+#zen-essentials-container {
+  grid-template-columns: repeat(auto-fit, minmax(var(--essentials-width), auto)) !important;
+  gap: var(--essentials-gap) var(--essentials-gap) !important;
+}
+
+
+/* Essentials Color Tweaks */
+#zen-essentials-container .tabbrowser-tab {
+  @media (-moz-bool-pref: "zen.theme.essentials-favicon-bg") {
+    &[visuallyselected] .tab-background {
+      &::after {
+        left: -50% !important;
+        top: -50% !important;
+        width: 200% !important;
+        height: 200% !important;
+        filter: blur (20px) !important;
+      }
+
+      &::before {
+        mask-image: none !important;
+        background-color: light-dark(color-mix(in srgb, #ffffff 65%, transparent),
+            color-mix(in srgb, #000000 55%, transparent)) !important;
+      }
+    }
+
+    &[visuallyselected]:hover .tab-background::before {
+      background-color: light-dark(color-mix(in srgb, #ffffff 55%, transparent),
+          color-mix(in srgb, #000000 65%, transparent)) !important;
+    }
+  }
+}
+
+/* Removes scrollbar in tab panel and also adds fade effect */
+
+#zen-tabs-wrapper {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  overflow-y: auto !important;
+}
+
+#zen-tabs-wrapper::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* New Tab Animations */
+#vertical-pinned-tabs-container,
+#tabbrowser-arrowscrollbox {
+  .tabbrowser-tab {
+    animation: new-tab-appear 0.2s cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+  }
+}
+
+
+@keyframes new-tab-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+
+  60% {
+    opacity: 0.8;
+    transform: translateY(4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tab switch animation */
+#tabbrowser-arrowscrollbox,
+tab {
+  transition: all 0.3s ease-in-out !important;
+}
+
+tab:not([zen-essential='true']):not([multiselected="true"]) .tab-background {
+  transition: all 0.2s ease-in-out !important;
+  scale: 0 !important;
+}
+
+tab:not([zen-essential='true']) .tab-background[selected] {
+  scale: 1 !important;
+}
+
+#tabbrowser-tabpanels>hbox:not([zen-split="true"]) {
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.35) !important;
+  scale: 0.9 !important;
+  opacity: 0;
+}
+
+#tabbrowser-tabpanels>hbox.deck-selected:not([zen-split="true"]) {
+  scale: 1 !important;
+  opacity: 1 !important;
+}
+
+/* Loading tab animation */
+tab[busy] {
+  scale: 0.95 !important;
+
+  .tab-background {
+    opacity: 0.3 !important;
+  }
+}
+
+/* - URL Bar Loading Animation - */
+#urlbar:not([breakout-extend="true"]) {
+
+  /* Unless urlbar is opened */
+  .urlbar-input-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(25deg, #4e4ac233, #4ecdc433, #4e4ac233);
+    background-size: 200% 100%;
+    animation: urlbar-loading-gradient 1s linear reverse infinite;
+    animation-play-state: paused;
+    opacity: 0;
+    transition: opacity 0.25s;
+    pointer-events: none;
+  }
+}
+
+&:has(#reload-button[displaystop="true"]) {
+
+  /* When 'Stop' button is shown isntead of 'Reload' */
+  .urlbar-input-container::before {
+    animation-play-state: running;
+    opacity: 1;
+  }
+}
+
+@keyframes urlbar-loading-gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+
+/* === BETTER CUSTOMIZE TOOLBAR === */
+
+#customization-container {
+  position: absolute;
+  z-index: 1;
+  bottom: 10px;
+  right: 10px;
+  height: 80%;
+  width: 70%;
+  border-radius: 12px;
+
+  padding: 10px;
+  background: light-dark(rgba(255, 255, 255, 0.32), rgba(0, 0, 0, 0.3)) !important;
+}
+
+@media (-moz-bool-pref: "zen.tabs.vertical.right-side") {
+  #customization-container {
+    left: 10px;
+  }
+
+  #customization-container #customization-content-container {
+    flex-direction: row-reverse;
+  }
+}
+
+#customization-container #customization-panel-container {
+  padding: 10px !important;
+}
+
+
+#customization-container #customization-panelWrapper {
+  --panel-arrow-offset: 0px;
+}
+
+#customization-container .panel-arrowbox {
+  display: none !important;
+}
+
+#customization-container .panel-arrowcontent {
+  height: 100% !important;
+  background: light-dark(rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.4)) !important;
+  border: none !important;
+  margin: 0px !important;
+  border-radius: 8px;
+}
+
+/* PIP */
+
+@-moz-document url("chrome://global/content/pictureinpicture/player.xhtml") {
+	.control-item.control-button {
+		background-color: rgba(0, 0, 0, 0) !important;
+	}
+
+  :root {
+    border-radius: 20px !important;
+    overflow: hidden !important;
+  }
+
+  video {
+    border-radius: 20px !important;
+  }
+
+	#close, #unpip {
+		fill: white !important;
+		padding: 5px !important;
+		top: 2px !important;
+
+		&:hover {
+			&::after {
+				display: none !important;
+			}
+		}
+	}
+
+	#close {
+		left: auto !important;
+		right: 5px !important;
+	}
+
+	#unpip {
+		left: 5px !important;
+		right: auto !important;
+	}
+
+	#controls {
+		margin: 0 !important;
+		height: 100% !important;
+		width: 100% !important;
+
+		transition: background-color 160ms linear;
+
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.69) !important;
+		}
+	}
+
+	#controls-bottom-gradient {
+		display: none !important;
+	}
+
+	#controls-bottom {
+		display: flex;
+		flex-direction: column-reverse;
+		bottom: 5px !important;
+	}
+
+	/* progress bar */
+	.scrubber-no-drag {
+		display: flex !important;
+		margin: 0 !important;
+		height: 100% !important;
+	}
+
+	#scrubber::-moz-range-thumb {
+		width: 0 !important;
+		height: 0 !important;
+		border: none !important;
+	}
+
+	#scrubber {
+		height: 5px !important;
+		transition: all 160ms linear !important;
+		overflow: hidden;
+		padding: 0 !important;
+		border: 5px solid rgba(0, 0, 0, 0);
+
+		&:hover {
+			height: 8px !important;
+		}
+	}
+
+	#scrubber {
+		&::-moz-range-track, &::-moz-range-progress {
+			height: 100% !important;
+		}
+	}
+}
+
+
+/* Check when the width is low */
+@media (max-width: 700px) {
+
+  /* Adjust the threshold as needed */
+  #customization-container {
+    border: 2px solid red;
+    /* Temporary visual indicator */
+  }
+}
